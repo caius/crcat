@@ -12,15 +12,13 @@ inputs.each do |path|
   end
 
   begin
-    fh = File.open(path, "r")
-    IO.copy(fh, STDOUT)
+    File.open(path, "r") do |fh|
+      IO.copy(fh, STDOUT)
+    end
 
   rescue Errno
     puts "#{$0} #{path}: No such file or directory"
     exit_value = 1
-
-  ensure
-    fh && fh.close
   end
 end
 
