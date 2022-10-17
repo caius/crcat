@@ -3,8 +3,16 @@ all: clean crcat
 
 .PHONY: clean
 clean:
-	rm -f crcat
+	rm -f crcat bin/*
 
-.PHONY: crcat
-crcat:
-	crystal build -o crcat cat.cr
+.PHONY: deps
+deps:
+	shards install
+
+.PHONY: build
+build: deps
+	shards build
+
+.PHONY: release
+release: deps
+	shards build --no-debug --release
