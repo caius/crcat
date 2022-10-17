@@ -1,0 +1,11 @@
+name: "crcat"
+version: 0.1.0
+description: "cat(1) implemented in Crystal"
+
+crystal: "<= 0.25.0"
+
+authors:
+  - "Caius <dev@caius.name>"
+
+license: "MIT"
+repository: "https://github.com/caius/crcat"
